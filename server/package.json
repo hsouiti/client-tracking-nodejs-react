@@ -1,0 +1,12 @@
+{
+  "name": "client-tracking-api",
+  "version": "1.0.0",
+  "description": "Easy way to manage your clients, invoices and other stuffs ...  all on one web application",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Hassan Souiti",
+  "license": "ISC"
+}
