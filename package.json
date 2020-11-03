@@ -18,5 +18,8 @@
     "mongoose"
   ],
   "author": "Hassan Souiti",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "cors": "^2.8.5"
+  }
 }
