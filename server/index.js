@@ -3,6 +3,23 @@ import clientsRoutes from './api/routes/clients.js'
 
 const app = express()
 
-app.use('/clients', clientsRoutes)
+//app.use(express.json())
 
-app.listen(3003, () => console.log('server running!!'))
+// Routes
+app.use('/api/clients', clientsRoutes)
+
+// Handling errors
+app.use((error, req, res, next) => {
+    res.status(error.status || 500)
+    res.json({
+        error: {
+            message: error.message
+        }
+    })
+})
+
+
+export default app
+
+
+
