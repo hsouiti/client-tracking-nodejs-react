@@ -25,8 +25,9 @@ const clientSchema = Schema({
         default: Date.now,
         required: [true, 'Purchase Date is required']
     },
-    city: String
-})
+    city: String,
+
+}, { timestamps: true })
 const Client = model('Client', clientSchema)
 
 export default Client

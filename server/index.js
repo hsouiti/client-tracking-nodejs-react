@@ -17,11 +17,11 @@ app.use('/api/clients', clientsRoutes)
 // Handling errors
 app.use((error, req, res, next) => {
     res.status(error.status || 500)
-    res.json({
-        error: {
-            message: error.message
-        }
-    })
+        .json({
+            error: {
+                message: error.message
+            }
+        })
 })
 
 
