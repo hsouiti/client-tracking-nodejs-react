@@ -12,12 +12,8 @@ router
 router
     .route('/:clientID')
     .get(clientsControllers.getClient)
-    .patch((req, res, next) => {
-        res.status(200).json({ message: 'Patch /:clientID', idClient: req.params.clientID })
-    })
-    .delete((req, res, next) => {
-        res.status(200).json({ message: 'Delete /:clientID' })
-    })
+    .patch(clientsControllers.updateClient)
+    .delete(clientsControllers.deleteClient)
 
 
 

@@ -10,6 +10,7 @@ mongoose
     .connect(url, {
         useNewUrlParser: true,
         useUnifiedTopology: true,
+        useFindAndModify: false
     })
     .then(db => {
         app.listen(
