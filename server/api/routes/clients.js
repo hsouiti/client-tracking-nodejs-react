@@ -6,6 +6,7 @@ router
     .route('/')
     .get((req, res, next) => {
         res.status(200).json({ message: 'Get' })
+        next()
     })
     .post((req, res, next) => {
         res.status(200).json({ message: 'Post' })
