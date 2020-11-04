@@ -1,4 +1,6 @@
-import mongoose, { Schema, model } from 'mongoose'
+import mongoose from 'mongoose'
+
+const { Schema, model } = mongoose
 
 const clientSchema = Schema({
 
@@ -10,7 +12,6 @@ const clientSchema = Schema({
         type: String,
         required: [true, 'Phone number is required']
     },
-    mobile: String,
     email: {
         type: String,
         required: [true, 'Email is required']
@@ -21,11 +22,11 @@ const clientSchema = Schema({
     },
     purchaseDate: {
         type: Date,
+        default: Date.now,
         required: [true, 'Purchase Date is required']
     },
     city: String
 })
-
 const Client = model('Client', clientSchema)
 
 export default Client

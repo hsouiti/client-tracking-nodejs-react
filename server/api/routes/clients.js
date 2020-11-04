@@ -1,23 +1,17 @@
 import express from 'express'
+import * as clientsControllers from '../controllers/clients.js'
 
 const router = express.Router()
 
 router
     .route('/')
-    .get((req, res, next) => {
-        res.status(200).json({ message: 'Get' })
-        next()
-    })
-    .post((req, res, next) => {
-        res.status(200).json({ message: 'Post' })
-    })
+    .get(clientsControllers.getClients)
+    .post(clientsControllers.createClient)
 
 
 router
     .route('/:clientID')
-    .get((req, res, next) => {
-        res.status(200).json({ message: 'Get /:clientID', idClient: req.params.clientID })
-    })
+    .get(clientsControllers.getClient)
     .patch((req, res, next) => {
         res.status(200).json({ message: 'Patch /:clientID', idClient: req.params.clientID })
     })
