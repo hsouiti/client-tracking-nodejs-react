@@ -6,6 +6,7 @@ const clientSchema = Schema({
 
     fullName: {
         type: String,
+        unique: true,
         required: [true, 'Name is required.']
     },
     phone: {
@@ -28,6 +29,7 @@ const clientSchema = Schema({
     city: String,
 
 }, { timestamps: true })
+
 const Client = model('Client', clientSchema)
 
 export default Client

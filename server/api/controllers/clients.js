@@ -30,8 +30,12 @@ export const getClient = async (req, res) => {
 // create client
 export const createClient = async (req, res, next) => {
     const { fullName, phone, email, price, purchaseDate, city } = req.body
-    // TODO: Check if the fullname is unique before saving
 
+    const fName = await Client.find({ fullName: req.body.fullName })
+    if (fName) {
+        res.status(409).json({ message: "Client already exist!!!" })
+        return
+    }
     const newClient = new Client({
         fullName,
         phone,
@@ -54,17 +58,14 @@ export const createClient = async (req, res, next) => {
 // update client
 export const updateClient = async (req, res, next) => {
     const { clientID } = req.params
-    /*  if (!mongoose.Types.ObjectId.isValid(clientID)) {
-         return res.status(404).json({ message: 'No matching client found!!' })
-     } */
+    if (!mongoose.Types.ObjectId.isValid(clientID)) {
+        return res.status(404).json({ message: 'No matching client with given ID found!!' })
+    }
 
-    // FIXME: No empty fields for required ones
-    const { fullName, phone, email, price, purchaseDate, city } = req.body
+    //FIXME:  No empty fields for required ones
 
     try {
-        const client = await Client.findByIdAndUpdate(clientID, {
-            fullName, phone, email, price, purchaseDate, city
-        }, { new: true })
+        const client = await Client.findByIdAndUpdate(clientID, req.body, { new: true })
 
         res.status(200).json(client)
     } catch (err) {
@@ -80,13 +81,16 @@ export const deleteClient = async (req, res) => {
     const { clientID } = req.params
 
     if (!mongoose.Types.ObjectId.isValid(clientID)) {
-        return res.status(404).json({ message: 'No matching client found!!' })
+        return res.status(404).json({ message: 'No matching client with given ID found!!' })
     }
 
 
     try {
         const client = await Client.findByIdAndDelete(clientID)
-        res.status(200).json({ message: "Client deleted succefully!" })
+
+        client
+            ? res.status(200).json({ message: "Client deleted succefully!" })
+            : res.status(404).json({ message: "No matching client found" })
     } catch (err) {
         err.status = 400
         next(err)
