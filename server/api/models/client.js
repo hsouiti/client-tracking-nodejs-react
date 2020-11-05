@@ -27,6 +27,7 @@ const clientSchema = Schema({
         required: [true, 'Purchase Date is required']
     },
     city: String,
+    // TODO: adding address
 
 }, { timestamps: true })
 
