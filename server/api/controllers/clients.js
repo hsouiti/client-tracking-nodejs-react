@@ -95,3 +95,20 @@ export const deleteClient = async (req, res) => {
         next(err)
     }
 }
+
+
+// get all client Invoices
+
+export const getAllinvoices = async (req, res, next) => {
+    const { clientID } = req.body
+    if (!mongoose.Types.ObjectId.isValid(clientID)) {
+        return res.status(404).json({ message: 'No matching client with given ID found!!' })
+    }
+    try {
+        // TODO: 
+
+    } catch (err) {
+        err.status = 400
+        next(err)
+    }
+}

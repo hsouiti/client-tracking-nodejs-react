@@ -15,6 +15,7 @@ router
     .patch(clientsControllers.updateClient)
     .delete(clientsControllers.deleteClient)
 
-
+router.route('/:clientID/invoices')
+    .get(clientsControllers.getAllinvoices)
 
 export default router
