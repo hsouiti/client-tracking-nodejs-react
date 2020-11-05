@@ -1,10 +1,10 @@
-import mongoose, { STATES } from 'mongoose'
+import mongoose from 'mongoose'
 
 const { Schema, model } = mongoose
 
 const invoiceSchema = new Schema({
 
-    number: {
+    num: {
         type: String,
         unique: true,
         required: [true, 'Number is required.']
@@ -14,7 +14,7 @@ const invoiceSchema = new Schema({
         default: Date.now,
         required: [true, 'Date is required.']
     },
-    details: [
+    items: [
         {
             code: {
                 type: String,

@@ -2,7 +2,7 @@ import express from 'express'
 import cors from 'cors'
 
 import clientsRoutes from './api/routes/clients.js'
-import mongoose from 'mongoose'
+import invoicesRoutes from './api/routes/invoices.js'
 
 const app = express()
 
@@ -13,7 +13,7 @@ app.use(cors())
 
 // Routes
 app.use('/api/clients', clientsRoutes)
-
+app.use('/api/invoices', invoicesRoutes)
 // Handling errors
 app.use((error, req, res, next) => {
     res.status(error.status || 500)
