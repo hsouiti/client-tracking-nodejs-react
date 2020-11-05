@@ -24,6 +24,7 @@ export const getClient = async (req, res) => {
     } catch (err) {
         err.status = 404
         next(err)
+
     }
 }
 

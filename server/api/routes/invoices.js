@@ -7,5 +7,8 @@ router.route('/')
     .get(invoicesControllers.getInvoices)
     .post(invoicesControllers.createInvoice)
 
-
+router.route('/:invoiceID')
+    .get(invoicesControllers.getInvoice)
+    .patch(invoicesControllers.updateInvoice)
+    .delete(invoicesControllers.deleteInvoice)
 export default router
