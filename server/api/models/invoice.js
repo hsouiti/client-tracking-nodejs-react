@@ -26,14 +26,19 @@ const invoiceSchema = new Schema({
             },
             quantity: {
                 type: Number,
-                required: [true, 'Quantity is Required']
+                default: 1
             },
             price: {
                 type: Number,
                 required: [true, 'Price is required']
             },
         }
-    ]
+    ],
+    client: {
+        type: Schema.Types.ObjectId,
+        ref: 'Client',
+        required: true
+    }
 })
 
 

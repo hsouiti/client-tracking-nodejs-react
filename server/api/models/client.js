@@ -28,6 +28,9 @@ const clientSchema = Schema({
     },
     city: String,
     // TODO: adding address
+    invoices: [
+        { type: Schema.Types.ObjectId, ref: 'Invoice' }
+    ]
 
 }, { timestamps: true })
 

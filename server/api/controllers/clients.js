@@ -63,7 +63,6 @@ export const updateClient = async (req, res, next) => {
     }
 
     //FIXME:  No empty fields for required ones
-
     try {
         const client = await Client.findByIdAndUpdate(clientID, req.body, { new: true })
 
