@@ -14,7 +14,7 @@ const invoiceSchema = new Schema({
         default: Date.now,
         required: [true, 'Date is required.']
     },
-    deatails: [
+    details: [
         {
             code: {
                 type: String,
