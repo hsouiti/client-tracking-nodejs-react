@@ -79,9 +79,12 @@ export const updateClient = async (req, res, next) => {
         return res.status(404).json({ message: 'No matching client with given ID found!!' })
     }
 
-    //FIXME:  No empty fields for required ones
+
+    //FIXME:  No empty fields for required ones 
     try {
-        const client = await Client.findByIdAndUpdate(clientID, req.body, { new: true })
+        const client = await Client.findByIdAndUpdate(clientID, req.body, {
+            new: true, runValidators: true
+        })
 
         res.status(200).json(client)
     } catch (err) {
@@ -121,11 +124,14 @@ export const getAllinvoices = async (req, res, next) => {
     if (!mongoose.Types.ObjectId.isValid(clientID)) {
         return res.status(404).json({ message: 'No matching client with given ID found!!' })
     }
+    console.log('hrrrre')
     try {
         // TODO: 
-        const invoices = await Client.findById(clientID)
-            //.select('fullName')
-            .populate('invoice', 'num  invoiceDate')
+        /*  const invoices = await Client.findById(clientID)
+             //.select('fullName')
+             .populate('invoice', 'num  invoiceDate') */
+
+        const invoices = await Invoice.findOne({ client: clientID })
         res.status(200).json(invoices)
     } catch (err) {
         err.status = 400

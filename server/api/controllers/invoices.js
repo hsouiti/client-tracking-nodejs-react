@@ -42,7 +42,7 @@ export const createInvoice = async (req, res, next) => {
     // Check if the number given is unique
     const fnum = await Invoice.findOne({ num })
     if (fnum) {
-        res.status(409).json({ message: "Facture number already exist!!!" })
+        res.status(409).json({ message: "Invoice number already exist!!!" })
         return
     }
 
@@ -78,8 +78,12 @@ export const updateInvoice = async (req, res, next) => {
 
     //FIXME:  No empty fields for required ones
     try {
-        const invoice = await Invoice.findByIdAndUpdate(invoiceID, req.body, { new: true })
+        const invoice = await Invoice.findByIdAndUpdate(invoiceID, req.body, {
+            new: true, runValidators: true
+        })
+
         res.status(200).json(invoice)
+
     } catch (err) {
         err.status = 400
         next(err)

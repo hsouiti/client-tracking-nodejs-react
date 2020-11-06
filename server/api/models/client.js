@@ -31,10 +31,7 @@ const clientSchema = Schema({
     },
     address: {
         street: String,
-        city: {
-            type: String,
-            required: [true, 'City is required']
-        },
+        city: String,
         zipcode: String,
     },
     invoices: [{
