@@ -1,10 +1,14 @@
 import mongoose from 'mongoose'
 import Client from '../models/client.js'
+import Invoice from '../models/invoice.js'
 
 // get all clients
 export const getClients = async (req, res, next) => {
     try {
-        const clients = await Client.find({}).select('-__v')
+        const clients = await Client.find({})
+            .select('-__v')
+            .populate('invoices')
+
         res.status(200).json(clients)
     } catch (err) {
         err.status = 400
@@ -13,18 +17,22 @@ export const getClients = async (req, res, next) => {
 }
 
 // get one client
-export const getClient = async (req, res) => {
+export const getClient = async (req, res, next) => {
     const { clientID } = req.params
 
     try {
-        const client = await Client.findById(clientID)
-        client
-            ? res.status(200).json(client)
+        const client = await Client.findById(clientID).populate('invoices')
+        /*  const client = await Client
+             .findOne({ _id: clientID })
+             .populate('invoices') */
+
+        console.log('jjjjjjjjjj')
+        client ? res.status(200).json(client)
             : res.status(404).json({ message: "No matching client found" })
+
     } catch (err) {
         err.status = 404
         next(err)
-
     }
 }
 
@@ -107,7 +115,10 @@ export const getAllinvoices = async (req, res, next) => {
     }
     try {
         // TODO: 
-
+        const invoices = await Client.findById(clientID)
+            //.select('fullName')
+            .populate('invoice', 'num  invoiceDate')
+        res.status(200).json(invoices)
     } catch (err) {
         err.status = 400
         next(err)

@@ -6,7 +6,7 @@ import Invoice from '../models/invoice.js'
 // get all invoices
 export const getInvoices = async (req, res, next) => {
     try {
-        const invoices = await Invoice.find({}).select('-__v')
+        const invoices = await Invoice.find({}).select('-__v').populate('client', 'fullName')
         res.status(200).json(invoices)
     } catch (err) {
         err.status = 400
@@ -20,9 +20,11 @@ export const getInvoice = async (req, res, next) => {
     const { invoiceID } = req.params
 
     try {
-        const invoice = await Invoice.findById(invoiceID) //.populate('client')
+        const invoice = await Invoice.findById(invoiceID).populate('client', 'fullName')
+
         invoice ? res.status(200).json(invoice)
             : res.status(404).json({ message: "No matching invoice found" })
+
     } catch (err) {
         err.status(404)
         next(err)
@@ -33,6 +35,14 @@ export const getInvoice = async (req, res, next) => {
 export const createInvoice = async (req, res, next) => {
     const { client, num, invoiceDate, items } = req.body
 
+    // Check if the number given is unique
+    const fnum = await Invoice.find({ num })
+    if (fnum) {
+        res.status(409).json({ message: "Facture number already exist!!!" })
+        return
+    }
+
+    // Check if the invoice contain at least one item
     if (!items || items.length === 0) {
         return res.status(409)
             .json({ message: "You must add at least one item to invoice!" })

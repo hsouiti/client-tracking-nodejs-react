@@ -26,11 +26,18 @@ const clientSchema = Schema({
         default: Date.now,
         required: [true, 'Purchase Date is required']
     },
-    city: String,
-    // TODO: adding address
-    invoices: [
-        { type: Schema.Types.ObjectId, ref: 'Invoice' }
-    ]
+    address: {
+        street: String,
+        city: {
+            type: String,
+            required: [true, 'City is required']
+        },
+        zipcode: String,
+    },
+    invoices: [{
+        type: Schema.Types.ObjectId,
+        ref: 'Invoice'
+    }]
 
 }, { timestamps: true })
 

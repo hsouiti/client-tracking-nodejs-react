@@ -39,7 +39,7 @@ const invoiceSchema = new Schema({
         ref: 'Client',
         required: true
     }
-})
+}, { timestamps: true })
 
 
 const Invoice = model('Invoice', invoiceSchema)
