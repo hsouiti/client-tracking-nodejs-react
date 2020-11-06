@@ -6,7 +6,11 @@ import Invoice from '../models/invoice.js'
 // get all invoices
 export const getInvoices = async (req, res, next) => {
     try {
-        const invoices = await Invoice.find({}).select('-__v').populate('client', 'fullName')
+        const invoices = await Invoice.find()
+            .sort({ createdAt: -1 })
+            .select('-__v')
+            .populate('client', 'fullName')
+
         res.status(200).json(invoices)
     } catch (err) {
         err.status = 400
@@ -47,6 +51,7 @@ export const createInvoice = async (req, res, next) => {
         return res.status(409)
             .json({ message: "You must add at least one item to invoice!" })
     }
+    // TODO: calculate the full amount of the invoice (sum of the items amount)
 
     const newInvoice = new Invoice({
         client,

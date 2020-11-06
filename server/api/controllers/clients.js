@@ -5,7 +5,8 @@ import Invoice from '../models/invoice.js'
 // get all clients
 export const getClients = async (req, res, next) => {
     try {
-        const clients = await Client.find({})
+        const clients = await Client.find()
+            .sort({ createdAt: -1 })
             .select('-__v')
             .populate('invoices')
 
@@ -46,6 +47,12 @@ export const createClient = async (req, res, next) => {
         res.status(409).json({ message: "Client already exist!!!" })
         return
     }
+
+    // Check if the email is unique
+    if (await Client.findOne({ email })) {
+        return res.status(409).json({ message: "Email already exist!!!" })
+    }
+
     const newClient = new Client({
         fullName,
         phone,

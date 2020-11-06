@@ -21,7 +21,7 @@ const clientSchema = Schema({
         required: [true, 'Email is required'],
         validate: {
             validator: email => regexEmail.test(email),
-            message: 'Must be a valid email!'
+            message: props => `${props.value} is not a valid email!`
         }
     },
     purchaseDate: {
