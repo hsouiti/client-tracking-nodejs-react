@@ -26,7 +26,7 @@ export const getClient = async (req, res, next) => {
              .findOne({ _id: clientID })
              .populate('invoices') */
 
-        console.log('jjjjjjjjjj')
+
         client ? res.status(200).json(client)
             : res.status(404).json({ message: "No matching client found" })
 
@@ -38,9 +38,10 @@ export const getClient = async (req, res, next) => {
 
 // create client
 export const createClient = async (req, res, next) => {
-    const { fullName, phone, email, price, purchaseDate, city } = req.body
+    const { fullName, phone, email, purchaseDate, city, address } = req.body
 
-    const fName = await Client.find({ fullName: req.body.fullName })
+    // Check if the name given is unique
+    const fName = await Client.findOne({ fullName })
     if (fName) {
         res.status(409).json({ message: "Client already exist!!!" })
         return
@@ -49,9 +50,8 @@ export const createClient = async (req, res, next) => {
         fullName,
         phone,
         email,
-        price,
         purchaseDate,
-        city
+        address
     })
 
     try {
@@ -67,6 +67,7 @@ export const createClient = async (req, res, next) => {
 // update client
 export const updateClient = async (req, res, next) => {
     const { clientID } = req.params
+
     if (!mongoose.Types.ObjectId.isValid(clientID)) {
         return res.status(404).json({ message: 'No matching client with given ID found!!' })
     }

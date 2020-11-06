@@ -2,6 +2,8 @@ import mongoose from 'mongoose'
 
 const { Schema, model } = mongoose
 
+const regexEmail = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
+
 const clientSchema = Schema({
 
     fullName: {
@@ -15,11 +17,12 @@ const clientSchema = Schema({
     },
     email: {
         type: String,
-        required: [true, 'Email is required']
-    },
-    price: {
-        type: Number,
-        required: [true, 'Price is required']
+        unique: true,
+        required: [true, 'Email is required'],
+        validate: {
+            validator: email => regexEmail.test(email),
+            message: 'Must be a valid email!'
+        }
     },
     purchaseDate: {
         type: Date,

@@ -36,7 +36,7 @@ export const createInvoice = async (req, res, next) => {
     const { client, num, invoiceDate, items } = req.body
 
     // Check if the number given is unique
-    const fnum = await Invoice.find({ num })
+    const fnum = await Invoice.findOne({ num })
     if (fnum) {
         res.status(409).json({ message: "Facture number already exist!!!" })
         return
