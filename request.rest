@@ -1,10 +1,10 @@
-POST http://localhost:3001
+POST http://localhost:3001/api/clients
 content-type: application/json
 
 {
-    "fullName": "Hassan Zidane",
+    "fullName": "Adil Rochdi",
     "phone": "0612548796",
-    "email":"gh@gmail.com",
+    "email":"rochdi@gmail.com",
     "purchaseDate": "01548754",
     "city": "agadir",
     "address": "addresss"
@@ -12,5 +12,5 @@ content-type: application/json
 
 ###
 
-GET htt://localhost:3001
+GET http://localhost:3001/api/clients
 Content-Type: application/json
