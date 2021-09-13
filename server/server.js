@@ -1,10 +1,14 @@
+import dotenv from "dotenv";
+dotenv.config()
+
 import mongoose from 'mongoose'
 import app from './index.js'
 
-const PORT = process.env.PORT || 3001
 
 // mongoDB connection
-const url = process.env.MONGODB_URL || 'mongodb://hassan:123456@localhost/crm-clients'
+const PORT = process.env.PORT 
+const url = process.env.MONGODB_URL 
+
 
 mongoose
     .connect(url, {
