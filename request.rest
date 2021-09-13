@@ -1,0 +1,16 @@
+POST http://localhost:3001
+content-type: application/json
+
+{
+    "fullName": "Hassan Zidane",
+    "phone": "0612548796",
+    "email":"gh@gmail.com",
+    "purchaseDate": "01548754",
+    "city": "agadir",
+    "address": "addresss"
+}
+
+###
+
+GET htt://localhost:3001
+Content-Type: application/json
