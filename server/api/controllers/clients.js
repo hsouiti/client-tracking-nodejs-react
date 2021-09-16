@@ -40,7 +40,6 @@ export const getClient = async (req, res, next) => {
 // create client
 export const createClient = async (req, res, next) => {
     const { fullName, phone, email, purchaseDate, city, address } = req.body
-console.log('hhhhhhhhhhhhhhhhhhhhhhhh', fullName, phone)
     // Check if the name given is unique
     const fName = await Client.findOne({ fullName })
     if (fName) {
