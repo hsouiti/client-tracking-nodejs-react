@@ -4,7 +4,9 @@
   "description": "Easy way to manage your clients, invoices and other stuffs ...  all on one web application",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "client": "cd client && yarn start",
+    "server": "cd server && yarn start",
+    "start": "cd client && yarn start"
   },
   "keywords": [
     "client-trakcing",
