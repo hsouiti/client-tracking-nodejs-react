@@ -14,6 +14,7 @@ app.use(cors())
 // Routes
 app.use('/api/clients', clientsRoutes)
 app.use('/api/invoices', invoicesRoutes)
+
 // Handling errors
 app.use((error, req, res, next) => {
     res.status(error.status || 500)
