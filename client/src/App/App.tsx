@@ -1,10 +1,12 @@
 import React from 'react';
-import Example from 'components/example';
+
+import Navigation from 'components/layout/naviagtion/Navigation';
 
 function App() {
   return (
     <div className="App">
      <h1>Clients Management</h1> 
+     <Navigation />
     </div>
   );
 }
