@@ -7,6 +7,10 @@
 guide.md
 Material UI : https://www.youtube.com/watch?v=m-2_gb_3L7Q
 
+#### structure
+
+https://www.taniarascia.com/react-architecture-directory-structure/
+
 ### Problems
 
 https://dev.to/ruppysuppy/how-pros-get-rid-of-relative-imports-in-js-ts-2i3f?fbclid=IwAR2lIi3Hzj-qr65lFrLRhW-b8t0rIZR7JhAeQP0DaJhkqxbyDKMIyDOJQgw
@@ -41,6 +45,7 @@ https://github.com/flatlogic/react-material-admin
 
 #### Redux Toolkit
 
+https://www.youtube.com/watch?v=rSa8sUC8m_4&list=PLEr-WXao6eSNuG2mQyV_48RQoj5p8WM_q&index=1&t=1s
 https://www.youtube.com/watch?v=9lCmbth63k0&t=3253s
 https://www.youtube.com/watch?v=rSa8sUC8m_4
 https://www.youtube.com/watch?v=9zySeP5vH9c

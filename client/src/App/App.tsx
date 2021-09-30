@@ -1,16 +1,22 @@
 import React from 'react';
 import CssBaseline from '@mui/material/CssBaseline';
-import Navigation from 'components/layout/sidebar/navigation/Navigation';
-import Header from 'components/layout/header/Header';
+import {BrowserRouter} from 'react-router-dom'
+
+
+import Routes from '../routes';
+import Navigation from '../components/layout/sidebar/navigation/Navigation';
+
 
 function App() {
   return (
+    <BrowserRouter>
     <div className="App">
       <CssBaseline />
-     <h1>Clients Management</h1> 
-     <Navigation />
-     <Header />
+      <h1>Clients Management</h1> 
+      <Navigation />
+      <Routes /> 
     </div>
+    </BrowserRouter>
   );
 }
 
