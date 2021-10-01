@@ -1,45 +1,46 @@
 import React from 'react'
-import {  Switch, Route } from 'react-router-dom'
+import {  Switch, Route,  BrowserRouter } from 'react-router-dom'
 
 import { appRoutes } from '../constants/appRoutes';
 import SideBar from '../components/sidebar/SideBar';
 import Header from '../components/layout/header/Header';
 
 
+const NotFound = () => <h2>Not Found</h2>
 
-const renderRoutes = (
-  <Switch>
-    {appRoutes.map((route) => {
-        return (
-          <Route
-            path={route.path}
-            component={route.component}
-            key={route.name}
-            exact={route.exact}
-          />
-        );
-     
-    })}
-  </Switch>
-);
+const RenderRoute = ({...Routees}: any) => {  
+  return <Route 
+    exact={Routees.exact}
+    path={Routees.Path}
+    render={(props) => <Routees.Component {...props} />}
+  /> 
+}
+
 
 
 const Routes = () => {
-    return (
-         <>
+  return (
+     <>
+        <BrowserRouter>
             <div style={{display: 'flex', width: '100%'}}>
                 
-                <div style={{border: '1px solid red', width: '15%', backgroundColor:'#6464e7'}}>
+                <div style={{border: '1px solid red', width: '15%'}}>
                     <SideBar />
                 </div>
                 
                 <div style={{border: '1px solid red', flexGrow:1}}>
-                    <Header />
-                    {renderRoutes}
+                  <Header />
+                    <Switch>
+                      {appRoutes.map(el => (
+                        <RenderRoute {...el} key={el.name} /> 
+                      ))}
+                      <Route component={NotFound} />
+                    </Switch>
                 </div>
             </div>
 
-        </>
+        </BrowserRouter>
+     </>
     )
 
 }

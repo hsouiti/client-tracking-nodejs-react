@@ -1,8 +1,8 @@
 import React from 'react'
-import { NavLink, Switch, Route } from 'react-router-dom'
+import { NavLink } from 'react-router-dom'
 
 import { appRoutes } from '../../constants/appRoutes';
-
+ import styles from './Sidebar.module.css'
 
 
 const SideBar = () => {
@@ -10,7 +10,7 @@ const SideBar = () => {
          <>
           <div style={{
             backgroundColor:'#6464e7', 
-              height: '130px',
+             height: '130px',
             color: '#FFF', 
             display: 'flex', 
             justifyContent: 'start', 
@@ -24,12 +24,21 @@ const SideBar = () => {
           </div>
             <ul>
             {
-                appRoutes.map(el =>
-                    <li key={el.name} >
-                        <NavLink  to={el.path}>{el.name}</NavLink> 
-                    </li>
-                )
+                appRoutes.map(el => {
+                  return (
+                      <li key={el.name}>
+                        <NavLink 
+                          to={el.path} 
+                          className={styles.nav}
+                          activeClassName={styles.selected}
+                        >
+                          {el.icon} {el.name}
+                        </NavLink> 
+                      </li>
+                    )
+                 })
             } 
+            <NavLink to='/yyyy'>YYYY</NavLink>
             </ul>
         </>
     )

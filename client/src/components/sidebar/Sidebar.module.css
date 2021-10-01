@@ -1,0 +1,9 @@
+.selected {
+  color: white;
+  background-color: aqua;
+}
+
+.nav {
+  color: brown;
+  font-size: bold;
+}
