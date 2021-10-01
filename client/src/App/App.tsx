@@ -4,7 +4,6 @@ import {BrowserRouter} from 'react-router-dom'
 
 
 import Routes from '../routes';
-import Navigation from '../components/layout/sidebar/navigation/Navigation';
 
 
 function App() {
@@ -13,7 +12,6 @@ function App() {
     <div className="App">
       <CssBaseline />
       <h1>Clients Management</h1> 
-      <Navigation />
       <Routes /> 
     </div>
     </BrowserRouter>

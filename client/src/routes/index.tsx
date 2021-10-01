@@ -1,50 +1,47 @@
 import React from 'react'
-import {
-BrowserRouter as Router,
-  Switch,
-  Route, 
-  NavLink
-} from 'react-router-dom'
+import {  Switch, Route } from 'react-router-dom'
 
-import {Home, Customers} from '../pages/indexPages'
-
-import { navLinks } from '../components/layout/sidebar/navigation/navLinks'
-
-const appRoutes = [
-    {path: '/', component: Home},
-    {path: '/customers', component: Customers},
-]
-
-
-export const Nav = () => {
-    return(
-        <ul>
-           {
-               navLinks.map(el =>
-                <li key={el.title} >
-                    <NavLink  to={el.path}>{el.title}</NavLink> 
-                </li>
-               )
-           } 
-        </ul>
-
-    )
-}
+import { appRoutes } from '../constants/appRoutes';
+import SideBar from '../components/sidebar/SideBar';
+import Header from '../components/layout/header/Header';
 
 
 
-export const NotFound = () => <h1>404!</h1>
+const renderRoutes = (
+  <Switch>
+    {appRoutes.map((route) => {
+        return (
+          <Route
+            path={route.path}
+            component={route.component}
+            key={route.name}
+            exact={route.exact}
+          />
+        );
+     
+    })}
+  </Switch>
+);
+
 
 const Routes = () => {
     return (
-        <>
-            <Switch>
-                <Route path='/' exact component={Home} />
-                <Route path='/customers'  component={Customers} />
-                <Route component={NotFound} />
-            </Switch>
+         <>
+            <div style={{display: 'flex', width: '100%'}}>
+                
+                <div style={{border: '1px solid red', width: '15%', backgroundColor:'#6464e7'}}>
+                    <SideBar />
+                </div>
+                
+                <div style={{border: '1px solid red', flexGrow:1}}>
+                    <Header />
+                    {renderRoutes}
+                </div>
+            </div>
+
         </>
     )
+
 }
 
 export default Routes

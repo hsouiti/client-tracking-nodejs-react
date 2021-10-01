@@ -1,11 +1,11 @@
 import React from 'react'
 
-const SideBar = () => {
+const Invoices = () => {
     return (
         <div>
-           SideBar 
+            Invoices
         </div>
     )
 }
 
-export default SideBar
+export default Invoices

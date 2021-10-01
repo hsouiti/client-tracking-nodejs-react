@@ -24,19 +24,18 @@ The following changes are being made to your tsconfig.json file: - compilerOptio
 #### UX Design
 
 https://invoice-app-giraffe.vercel.app/
-
 https://www.frontendmentor.io/challenges/product-feedback-app-wbvUYqjR6
 
 #### Hooks
 
+https://www.youtube.com/watch?v=3cYtqrNUiVw
 https://www.youtube.com/watch?v=TmqxBA5j-f0
-
 https://www.youtube.com/watch?v=56_OUG-0wgI
-
 https://github.com/damirpristav/react-multistep-form-ts
 
 #### ReactMaterialUI
 
+https://webdevassist.com/reactjs-materialui/material-ui-navigation-drawer
 https://www.youtube.com/watch?v=lKZiXQWnlUw
 https://www.youtube.com/watch?v=aTPkos3LKi8
 
