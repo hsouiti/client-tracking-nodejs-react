@@ -5,12 +5,11 @@ import { appRoutes } from '../constants/appRoutes';
 import SideBar from '../components/sidebar/SideBar';
 import Header from '../components/layout/header/Header';
 import { Box } from '@mui/material';
-import { drawerWidth } from '../components/sidebar/styles';
+import { drawerWidth } from '../components/sidebar/sidebarStyles';
 
 const NotFound = () => <h2>Not Found</h2>
 
 const RenderRoute = ({...route}: any) => {  
-  console.log('hhh', route)
   return <Route 
     exact={route.exact}
     path={route.Path}

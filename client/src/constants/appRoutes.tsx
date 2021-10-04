@@ -4,8 +4,10 @@ import InboxIcon from '@mui/icons-material/MoveToInbox';
 import MailIcon from '@mui/icons-material/Mail';
 
 
-// Get the name of each chunk in build (webpackChunkName)
-
+/* To Get the name of each chunk 
+    in production you must add
+    (webpackChunkName) as below.
+*/
 const Home = React.lazy(() => import (/* webpackChunkName: "Home"*/ '../pages/home/home'))
 const Customers = React.lazy (() => import (/* webpackChunkName: "Customers"*/ '../pages/customers/customers'))
 const Invoices = React.lazy(() => import (/* webpackChunkName: "Invoices" */ '../pages/invoices/invoices'))

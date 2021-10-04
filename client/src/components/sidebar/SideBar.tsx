@@ -12,28 +12,36 @@ import {
 
 import { appRoutes } from '../../constants/appRoutes'
 
-import useStyles from './styles'
+import useStyles from './sidebarStyles'
+import SideBarLink from './SideBarLink'
+import LogoApp from '../layout/logo/LogoApp'
 
+const logo= {text:'LOGO APP.'}
 
 const SideBar = () => {
   const styles = useStyles()
 
     return (
-      
+      <>
       <MuiDrawer 
         variant="permanent"
         anchor="left"
         open 
         >
             <Box className={styles.sidebar}> 
-              
+                <LogoApp {...logo}/>
                   {
                     appRoutes.map(el => {
                       return (
                         <div className={styles.sideBarElement} key={el.name}>                         
                             <Typography variant="subtitle1" gutterBottom >
                                 <ListItemIcon >{el.icon}</ListItemIcon>   
-                                {el.name}
+                                <NavLink 
+                                to={el.path}
+                                //className={`${styles.navLink} ${styles.navLinkRoot}`}
+                                >
+                                  {el.name}
+                                </NavLink>
                               </Typography>
                             {
                               el.subLinks && (
@@ -41,36 +49,24 @@ const SideBar = () => {
                                   {
                                     el.subLinks?.map(item => {
                                       return (
-                                        <ListItem key={item.name}>
-                                          <ListItemIcon>{item.icon}</ListItemIcon>   
-                                            <Typography 
-                                              variant='subtitle1'
-                                              align='center'  
-                                              noWrap
-                                            >                       
-                                              <NavLink 
-                                                  exact
-                                                  to={item.path} 
-                                                  className={styles.navLink}
-                                                  activeClassName={styles.selected}
-                                                > 
-                                                {item.name}
-                                                
-                                              </NavLink>  
-                                            </Typography> 
-                                        </ListItem>
+                                        // TODO: Extract to a new component <LinkSideBar />
+
+                                        <SideBarLink {...item} />
+
+                                       
                                       )
                                     })
                                   }
                                 </List>
                               )
                             }
-                          </div>
-                        )
+                        </div>
+                      )
                     })
                 }
          </Box>
       </MuiDrawer>
+      </>
     )
 
 }

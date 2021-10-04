@@ -6,25 +6,22 @@ export default makeStyles({
     
     sidebar: {
         width: drawerWidth,
-        padding:20,
+        padding:'0 20px',
         backgroundColor: 'rgba(17,34,56,1)',
+        height: '100vh'
     },
     sideBarElement: {
         border: '1px solid blue',
         color:'white',
          marginBottom: 10
-        },
+    },
     sublinksList: {
-        //border: '1px solid purple'
         color: 'white'
     },
-    navLink: {
-        textDecoration: 'none',
-        color: 'white',
-        fontWeight: 'normal',
-        fontSize: '.9rem'
+    sublinksListItem: {
+        backgroundColor: 'red',
+        margin: 10,
+        paddingTop: 0,
+        paddingBottom: 50
     },
-    selected: {
-        textDecoration: 'underline'
-    }
 });
