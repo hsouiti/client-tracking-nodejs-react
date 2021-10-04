@@ -45,18 +45,8 @@ const SideBar = () => {
                               </Typography>
                             {
                               el.subLinks && (
-                                <List className={styles.sublinksList}>
-                                  {
-                                    el.subLinks?.map(item => {
-                                      return (
-                                        // TODO: Extract to a new component <LinkSideBar />
-
-                                        <SideBarLink {...item} />
-
-                                       
-                                      )
-                                    })
-                                  }
+                                <List classes={{root: styles.sublinksList}}>
+                                  {el.subLinks?.map(item => <SideBarLink key={item.name} {...item} />)}
                                 </List>
                               )
                             }

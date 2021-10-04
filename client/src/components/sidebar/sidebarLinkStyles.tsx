@@ -7,17 +7,19 @@ export default makeStyles({
         color: 'white',
         border: '1px solid yellow',     
         backgroundColor: 'purple', 
+        padding:0
     },
     item: {
-        paddingTop: 3, 
-        paddingBottom: 3 , 
+        border: '1px solid yellow',     
+        padding: 0
     },
     navLink: {
         textDecoration: 'none',
         color: 'white',
         fontWeight: 'normal',
         margin:0,
-        fontSize: '.85rem'
+        fontSize: '.85rem',
+        padding: 0,
     },  
     selected: {
         textDecoration: 'underline'

@@ -13,10 +13,10 @@ export default makeStyles({
     sideBarElement: {
         border: '1px solid blue',
         color:'white',
-         marginBottom: 10
     },
     sublinksList: {
-        color: 'white'
+        border: '1px solid pink',
+        padding:0,
     },
     sublinksListItem: {
         backgroundColor: 'red',
