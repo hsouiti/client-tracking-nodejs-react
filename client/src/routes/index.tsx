@@ -24,9 +24,7 @@ const Routes = () => {
         <BrowserRouter>
             <div style={{display: 'flex', width: '100%'}}>
                 
-                <div style={{border: '1px solid red', width: '15%'}}>
                     <SideBar />
-                </div>
                 
                 <div style={{border: '1px solid red', flexGrow:1}}>
                   <Header />

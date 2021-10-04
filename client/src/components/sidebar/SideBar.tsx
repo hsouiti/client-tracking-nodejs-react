@@ -5,11 +5,8 @@ import {
   Box,
   List, 
   Typography,
-  Divider,
-  IconButton,
   ListItem,
   ListItemIcon,
-  ListItemText,
   ListItemButton,
   Drawer as MuiDrawer
 }   from '@mui/material/'
@@ -27,21 +24,30 @@ const SideBar = () => {
 
     return (
          <Box>
-          <MuiDrawer variant="permanent" open>
+          <MuiDrawer 
+            variant="permanent"
+            anchor="left"
+            open 
+            className={styles.sidebar}
+          >
+            <div className={styles.linksWrapper}>
             <List>
               {
                 appRoutes.map(el => {
                   return (
                       <ListItem key={el.name}>
                           <ListItemButton>
-                            <ListItemIcon></ListItemIcon>                           
+                            <ListItemIcon></ListItemIcon>    
+                             <Typography variant="h6" noWrap component="div">                       
                               <NavLink 
-                                exact
-                                to={el.path} 
+                                  exact
+                                  to={el.path} 
+                                  className={styles.navLink}
                                  activeClassName={styles.selected}
                                 >
                                 {el.name}
                               </NavLink>  
+                              </Typography>
                           </ListItemButton>
                       </ListItem>
                     )
@@ -49,6 +55,7 @@ const SideBar = () => {
             }
 
             </List>
+            </div>
           </MuiDrawer>
         </Box>
     )
