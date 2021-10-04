@@ -5,16 +5,18 @@ import {ListItem,ListItemText, ListItemIcon, Typography} from '@mui/material'
 
 import useStyles from './sidebarLinkStyles'
 
+
 const SideBarLink = ({...item}) => {
     const styles = useStyles()
-console.log('styles', styles)
     return (
-        <ListItem  key={item.name} classes={{ root: styles.item}}>
-            <ListItemIcon>{item.icon}</ListItemIcon>   
-            <ListItemText>
+        <ListItem  key={item.name} 
+            className={styles.root}
+        >
+            <ListItemIcon className={styles.iconLink}>{item.icon}</ListItemIcon>   
+            <ListItemText className={styles.textLink}>
                 <Typography 
                     variant='subtitle1'
-                    align='center'  
+                    align='left'  
                     noWrap
 
                 >                       

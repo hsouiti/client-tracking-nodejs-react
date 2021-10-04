@@ -29,16 +29,16 @@ const SideBar = () => {
         open 
         >
             <Box className={styles.sidebar}> 
-                <LogoApp {...logo}/>
+                <LogoApp {...logo} style={styles.logoApp} />
                   {
                     appRoutes.map(el => {
                       return (
                         <div className={styles.sideBarElement} key={el.name}>                         
-                            <Typography variant="subtitle1" gutterBottom >
-                                <ListItemIcon >{el.icon}</ListItemIcon>   
+                            <Typography variant="subtitle1" className={styles.item}>
+                                <ListItemIcon className={styles.itemIcon}>{el.icon}</ListItemIcon>   
                                 <NavLink 
                                 to={el.path}
-                                //className={`${styles.navLink} ${styles.navLinkRoot}`}
+                                className={styles.navLinkRoot}
                                 >
                                   {el.name}
                                 </NavLink>

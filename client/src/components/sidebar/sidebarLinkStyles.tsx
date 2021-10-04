@@ -1,30 +1,37 @@
 import { makeStyles } from '@mui/styles'
 
 
-export default makeStyles({
+export default makeStyles(theme => ({
     
     root: {
-        color: 'white',
-        border: '1px solid yellow',     
-        backgroundColor: 'purple', 
-        padding:0
+        color: 'white',        
+        '&&': {
+           padding:'0px 20px'
+        }
+
     },
-    item: {
-        border: '1px solid yellow',     
-        padding: 0
+  textLink: {
+  },
+  iconLink: {
+    '&&': {
+      minWidth: 40,
+      justifyContent: 'center',
+        color: 'rgba(255,255,255,.7)',
+        fontSize:'1rem'
     },
-    navLink: {
-        textDecoration: 'none',
-        color: 'white',
-        fontWeight: 'normal',
-        margin:0,
-        fontSize: '.85rem',
-        padding: 0,
-    },  
-    selected: {
-        textDecoration: 'underline'
-    } 
-});
+  },
+  navLink: {
+      textDecoration: 'none',
+      color: 'white',
+      fontWeight: 'normal',
+      margin:0,
+      fontSize: '.85rem',
+      padding: 0,
+  },  
+  selected: {
+      textDecoration: 'underline'
+  } 
+}))
 
 /*
 export const styles = (theme) => ({

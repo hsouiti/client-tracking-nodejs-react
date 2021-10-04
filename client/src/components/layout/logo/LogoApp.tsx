@@ -1,8 +1,8 @@
 import React from 'react'
 
-const LogoApp = ({...logo}) => {
+const LogoApp = (props: any) => {
     return (
-       <h1>{logo.text}</h1>
+       <div className={props.style} >{props.text}</div>
     )
 }
 
