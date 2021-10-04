@@ -4,45 +4,52 @@ import {  Switch, Route,  BrowserRouter, Redirect } from 'react-router-dom'
 import { appRoutes } from '../constants/appRoutes';
 import SideBar from '../components/sidebar/SideBar';
 import Header from '../components/layout/header/Header';
-
+import { Box } from '@mui/material';
+import { drawerWidth } from '../components/sidebar/styles';
 
 const NotFound = () => <h2>Not Found</h2>
 
-const RenderRoute = ({...Routees}: any) => {  
+const RenderRoute = ({...route}: any) => {  
+  console.log('hhh', route)
   return <Route 
-    exact={Routees.exact}
-    path={Routees.Path}
-    render={(props) => <Routees.component {...props} />}
+    exact={route.exact}
+    path={route.Path}
+    render={(props) => <route.Component {...props} />}
   /> 
 }
 
 
 
+const contentStyle = {
+  marginLeft:drawerWidth,
+width: '100%',
+padding:'20px',
+backgroundColor: 'aqua  '
+}
+
+
 const Routes = () => {
   return (
-     <>
         <BrowserRouter>
-            <div style={{display: 'flex', width: '100%'}}>
-                
-                    <SideBar />
-                
-                <div style={{border: '1px solid red', flexGrow:1}}>
-                  <Header />
-                  
-                   <React.Suspense fallback={<div>Loading...</div>}>
-                    <Switch>
-                      {appRoutes.map(el => (
-                        <RenderRoute {...el} key={el.name} /> 
-                      ))}
-                      <Route path='/404' component={NotFound} />
-                      <Redirect to='/404' />
-                    </Switch>
-                  </React.Suspense>
-                </div>
-            </div>
+          <SideBar />
+          <Box style={contentStyle}>
+              <React.Suspense fallback={<div>Loading...</div>}>
+              <Switch>
+                {appRoutes.map(el => {
+                  return (
+                    el.subLinks  ?
+                    el.subLinks?.map(item => <RenderRoute {...item} key={item.name} />)
+                    
+                    : <RenderRoute {...el} key={el.name} />                        
+                    )
+                  })}
 
+                <Route path='/404' component={NotFound} />
+                <Redirect to='/404' />
+              </Switch>
+            </React.Suspense>
+        </Box>
         </BrowserRouter>
-     </>
     )
 
 }

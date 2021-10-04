@@ -10,7 +10,8 @@ const Home = React.lazy(() => import (/* webpackChunkName: "Home"*/ '../pages/ho
 const Customers = React.lazy (() => import (/* webpackChunkName: "Customers"*/ '../pages/customers/customers'))
 const Invoices = React.lazy(() => import (/* webpackChunkName: "Invoices" */ '../pages/invoices/invoices'))
 
-
+const CustomersAdd = () => <h1>Add Customer</h1>
+const InvoiceAdd = () => <h1>Add Invoice</h1>
 
 export const appRoutes = [
     {
@@ -18,27 +19,50 @@ export const appRoutes = [
         path: '/',
         exact: true, 
         icon:  <InboxIcon />,
-        component: Home
+        Component: Home,
     },
     {
         name:'Customers',
         path: '/customers',
+        exatct: true,
         icon:  <MailIcon />,
-        component: Customers,
+        Component: Customers,
         subLinks: [
+            {
+                name: 'List Customers',
+                path:'/customers',
+                exact:true,
+                icon:<MailIcon />,
+                Component: Customers
+            },
             {
                 name: 'New Customer',
                 path:'/customers/new',
                 icon:<MailIcon />,
-                component: Customers
-            }
+                Component: CustomersAdd
+            },
         ]
     },
     {
         name:'Invoices',
         path: '/invoices',
         icon:  <InboxIcon />,
-        component: Invoices
+        component: Invoices,
+        subLinks: [
+            {
+                name: 'List Invoices',
+                path:'/invoices',
+                exact:true,
+                icon:<MailIcon />,
+                Component: Invoices
+            },
+            {
+                name: 'New Invoice',
+                path:'/invoices/new',
+                icon:<MailIcon />,
+                Component:InvoiceAdd
+            },
+        ]
     },
 ]
 

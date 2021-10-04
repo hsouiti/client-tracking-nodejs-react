@@ -1,18 +1,28 @@
 import { makeStyles } from '@mui/styles'
-const drawerWidth = 300;
+
+export const drawerWidth = 300;
 
 export default makeStyles({
+    
     sidebar: {
         width: drawerWidth,
-        backgroundColor: 'aqua'
+        padding:20,
+        backgroundColor: 'rgba(17,34,56,1)',
     },
-    linksWrapper: {
-        width: drawerWidth
+    sideBarElement: {
+        border: '1px solid blue',
+        color:'white',
+         marginBottom: 10
+        },
+    sublinksList: {
+        //border: '1px solid purple'
+        color: 'white'
     },
-    ul: {},
-    li: {display: 'block'},
     navLink: {
-        textDecoration: 'none'
+        textDecoration: 'none',
+        color: 'white',
+        fontWeight: 'normal',
+        fontSize: '.9rem'
     },
     selected: {
         textDecoration: 'underline'

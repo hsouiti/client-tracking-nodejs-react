@@ -7,7 +7,7 @@ import Routes from '../routes';
 
 function App() {
   return (
-    <div className="App">
+    <div className="App" style={{display: 'flex'}}>
       <CssBaseline />
       <Routes /> 
     </div>
@@ -15,3 +15,10 @@ function App() {
 }
 
 export default App;
+
+
+
+
+
+
+
