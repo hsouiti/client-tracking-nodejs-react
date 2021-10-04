@@ -1,5 +1,5 @@
 import React from 'react'
-import {  Switch, Route,  BrowserRouter } from 'react-router-dom'
+import {  Switch, Route,  BrowserRouter, Redirect } from 'react-router-dom'
 
 import { appRoutes } from '../constants/appRoutes';
 import SideBar from '../components/sidebar/SideBar';
@@ -30,12 +30,16 @@ const Routes = () => {
                 
                 <div style={{border: '1px solid red', flexGrow:1}}>
                   <Header />
+                  
+                   <React.Suspense fallback={<div>Loading...</div>}>
                     <Switch>
                       {appRoutes.map(el => (
                         <RenderRoute {...el} key={el.name} /> 
                       ))}
-                      <Route component={NotFound} />
+                      <Route path='/404' component={NotFound} />
+                      <Redirect to='/404' />
                     </Switch>
+                  </React.Suspense>
                 </div>
             </div>
 

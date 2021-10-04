@@ -1,46 +1,56 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
 
-import { appRoutes } from '../../constants/appRoutes';
- import styles from './Sidebar.module.css'
+import {
+  Box,
+  List, 
+  Typography,
+  Divider,
+  IconButton,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  ListItemButton,
+  Drawer as MuiDrawer
+}   from '@mui/material/'
+
+
+import { appRoutes } from '../../constants/appRoutes'
+
+import useStyles from './styles'
+
+
 
 
 const SideBar = () => {
-    return (
-         <>
-          <div style={{
-            backgroundColor:'#6464e7', 
-             height: '130px',
-            color: '#FFF', 
-            display: 'flex', 
-            justifyContent: 'start', 
-            alignItems:'center',
-            textTransform: 'uppercase',
-            paddingLeft: '20px'
-           }} >
+  const styles = useStyles()
 
-            <h2>Logo.</h2>
-            
-          </div>
-            <ul>
-            {
+    return (
+         <Box>
+          <MuiDrawer variant="permanent" open>
+            <List>
+              {
                 appRoutes.map(el => {
                   return (
-                      <li key={el.name}>
-                        <NavLink 
-                          to={el.path} 
-                          className={styles.nav}
-                          activeClassName={styles.selected}
-                        >
-                          {el.icon} {el.name}
-                        </NavLink> 
-                      </li>
+                      <ListItem key={el.name}>
+                          <ListItemButton>
+                            <ListItemIcon></ListItemIcon>                           
+                              <NavLink 
+                                exact
+                                to={el.path} 
+                                 activeClassName={styles.selected}
+                                >
+                                {el.name}
+                              </NavLink>  
+                          </ListItemButton>
+                      </ListItem>
                     )
-                 })
-            } 
-            <NavLink to='/yyyy'>YYYY</NavLink>
-            </ul>
-        </>
+                })
+            }
+
+            </List>
+          </MuiDrawer>
+        </Box>
     )
 
 }

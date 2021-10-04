@@ -9,7 +9,6 @@ function App() {
   return (
     <div className="App">
       <CssBaseline />
-      <h1>Clients Management</h1> 
       <Routes /> 
     </div>
   );

@@ -1,0 +1,19 @@
+li a,
+.selected {
+  /*  padding: 10px 15px;
+  text-decoration: none;
+  display: inline-block;
+  width: 100%; */
+}
+
+.selected {
+  background-color: rebeccapurple;
+  color: white;
+}
+ul {
+  list-style-type: none;
+}
+li {
+  width: 150px;
+  margin: 15px 0;
+}
