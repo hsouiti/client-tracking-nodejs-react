@@ -12,7 +12,7 @@ const RenderRoute = ({...Routees}: any) => {
   return <Route 
     exact={Routees.exact}
     path={Routees.Path}
-    render={(props) => <Routees.Component {...props} />}
+    render={(props) => <Routees.component {...props} />}
   /> 
 }
 

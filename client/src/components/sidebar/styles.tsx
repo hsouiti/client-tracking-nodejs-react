@@ -9,10 +9,12 @@ export default makeStyles({
     linksWrapper: {
         width: drawerWidth
     },
+    ul: {},
+    li: {display: 'block'},
     navLink: {
         textDecoration: 'none'
     },
     selected: {
-        backgroundColor: 'red'
+        textDecoration: 'underline'
     }
 });

@@ -1,13 +1,12 @@
 import React from 'react'
 import { NavLink } from 'react-router-dom'
-
 import {
   Box,
   List, 
   Typography,
   ListItem,
   ListItemIcon,
-  ListItemButton,
+  ListItemText,
   Drawer as MuiDrawer
 }   from '@mui/material/'
 
@@ -15,8 +14,6 @@ import {
 import { appRoutes } from '../../constants/appRoutes'
 
 import useStyles from './styles'
-
-
 
 
 const SideBar = () => {
@@ -31,30 +28,46 @@ const SideBar = () => {
             className={styles.sidebar}
           >
             <div className={styles.linksWrapper}>
-            <List>
-              {
-                appRoutes.map(el => {
-                  return (
-                      <ListItem key={el.name}>
-                          <ListItemButton>
-                            <ListItemIcon></ListItemIcon>    
-                             <Typography variant="h6" noWrap component="div">                       
-                              <NavLink 
-                                  exact
-                                  to={el.path} 
-                                  className={styles.navLink}
-                                 activeClassName={styles.selected}
-                                >
-                                {el.name}
-                              </NavLink>  
-                              </Typography>
-                          </ListItemButton>
-                      </ListItem>
-                    )
-                })
-            }
+              <List>
+                {
+                  appRoutes.map(el => {
+                    return (
+                      <>
+                          <ListItem className={styles.li}>
+                            {el.name}
+                          {/* <ListItemIcon></ListItemIcon>    */} 
+                            <List>
+                              {
+                                el.subLinks?.map(item => {
+                                  return (
+                                    <ListItem>
+                                      <Typography 
+                                          variant='subtitle1'
+                                          align='center'  
+                                          noWrap
+                                        >                       
+                                          <NavLink 
+                                              exact
+                                              to={item.path} 
+                                              className={styles.navLink}
+                                              activeClassName={styles.selected}
+                                            > 
+                                            {item.name}
+                                            
+                                          </NavLink>  
+                                        </Typography> 
+                                    </ListItem>
+                                  )
+                                })
+                              }
+                            </List>
+                          </ListItem>
+                        </>
+                      )
+                  })
+              }
 
-            </List>
+              </List>
             </div>
           </MuiDrawer>
         </Box>

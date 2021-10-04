@@ -18,19 +18,27 @@ export const appRoutes = [
         path: '/',
         exact: true, 
         icon:  <InboxIcon />,
-        Component: Home
+        component: Home
     },
     {
         name:'Customers',
         path: '/customers',
         icon:  <MailIcon />,
-        Component: Customers
+        component: Customers,
+        subLinks: [
+            {
+                name: 'New Customer',
+                path:'/customers/new',
+                icon:<MailIcon />,
+                component: Customers
+            }
+        ]
     },
     {
         name:'Invoices',
         path: '/invoices',
         icon:  <InboxIcon />,
-        Component: Invoices
+        component: Invoices
     },
 ]
 
