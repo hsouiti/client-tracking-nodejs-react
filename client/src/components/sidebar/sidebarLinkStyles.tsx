@@ -4,15 +4,17 @@ import { makeStyles } from '@mui/styles'
 export default makeStyles(theme => ({
     
     root: {
-        color: 'white',        
+        color: 'white', 
+        // Overwriting the default styling       
         '&&': {
-           padding:'0px 20px'
+          padding:'0px 20px'
         }
-
-    },
-  textLink: {
-  },
-  iconLink: {
+        
+      },
+      textLink: {
+      },
+      iconLink: {
+    // Overwriting the default styling       
     '&&': {
       minWidth: 40,
       justifyContent: 'center',
