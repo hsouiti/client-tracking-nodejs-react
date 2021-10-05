@@ -12,19 +12,20 @@ const SideBarLink = ({...item}) => {
         <ListItem  key={item.name} 
             className={styles.root}
         >
-            <ListItemIcon className={styles.iconLink}>{item.icon}</ListItemIcon>   
+            <ListItemIcon className={styles.iconLink}>
+                {item.icon}
+            </ListItemIcon>
             <ListItemText className={styles.textLink}>
                 <Typography 
                     variant='subtitle1'
                     align='left'  
                     noWrap
-
                 >                       
                     <NavLink 
-                    exact
-                    to={item.path} 
+                        exact
+                        to={item.path} 
                         className={styles.navLink}
-                        activeClassName={styles.selected}
+                        activeClassName={styles.active}
                     > 
                         {item.name}
                     </NavLink>  

@@ -1,14 +1,16 @@
 import { makeStyles } from '@mui/styles'
+import {Theme} from '@mui/material'
 
-export const drawerWidth = 350;
+export const drawerWidth = 320;
 
-export default makeStyles({
+export default makeStyles((theme: Theme) =>({
     logoApp: {
         fontSize: '2.5rem',
         color: 'rgba(255,255,255,.9)',
         fontWeight: 'bold',
-        padding: '10px 20px',
-        marginBottom: 30
+        padding: '20px',
+        marginBottom: 30,
+        /* marginBottom:theme.spacing(2) */
     },
     sidebar: {
         width: drawerWidth,
@@ -27,9 +29,13 @@ export default makeStyles({
         display:'flex'
     },
     itemIcon: {
-        fontSize:'1.5rem',
         '&&': {
-            color: 'rgba(255,255,255,.7)'
+            color: 'rgba(255,255,255,.7)',
+            minWidth: 35,
+            justifyContent: 'center',
+        },
+        '& .MuiSvgIcon-root' :{
+            fontSize: '1.45rem'
         }
     },
     navLinkRoot: {
@@ -37,11 +43,18 @@ export default makeStyles({
         textDecoration: 'none',
         color: 'white',
         fontWeight: 'normal',
+        '&:hover, &:active' :{
+            color: 'orange'
+        }
     },  
     sublinksListItem: {
         margin: 10,
         paddingTop: 0,
         paddingBottom: 50,
-        border: '1px solid green'
     },
-});
+    active: {
+      textDecoration: 'underline',
+      color:'orange'
+    } 
+
+}))

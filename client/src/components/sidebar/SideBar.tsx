@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavLink } from 'react-router-dom'
+import { NavLink, useLocation } from 'react-router-dom'
 import {
   Box,
   List, 
@@ -19,9 +19,9 @@ const logo= {text:'LOGO APP.'}
 
 const SideBar = () => {
   const styles = useStyles()
-
-    return (
-      <>
+const {pathname} = useLocation()
+return (
+  <>
       <MuiDrawer 
         variant="permanent"
         anchor="left"
@@ -34,10 +34,11 @@ const SideBar = () => {
                       return (
                         <div className={styles.sideBarElement} key={el.name}>                         
                             <Typography variant="subtitle1" className={styles.item}>
-                                <ListItemIcon className={styles.itemIcon}>{el.icon}</ListItemIcon>   
+                              <ListItemIcon className={styles.itemIcon}>{el.icon}</ListItemIcon>   
                                 <NavLink 
-                                to={el.path}
-                                className={styles.navLinkRoot}
+                                  to={el.path}
+                                  className={styles.navLinkRoot}
+                                  activeClassName={pathname==='/' ? styles.active : 'noActive'}
                                 >
                                   {el.name}
                                 </NavLink>
