@@ -1,10 +1,12 @@
+import { Paper } from '@mui/material'
 import React from 'react'
 
-const Header = () => {
+const Header = ({title}: {title:string}) => {
+    console.log(title)
     return (
-        <div>
-           Header
-        </div>
+       <Paper elevation={0}> 
+            <h1>Header {title}</h1>
+       </Paper>
     )
 }
 

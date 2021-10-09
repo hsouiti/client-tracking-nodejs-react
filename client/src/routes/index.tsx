@@ -13,7 +13,7 @@ const RenderRoute = ({...route}: any) => {
   return <Route 
     exact={route.exact}
     path={route.Path}
-    render={(props) => <route.Component {...props} />}
+    render={(props) => <route.Component {...props} key={route.name}/>}
   /> 
 }
 
@@ -21,9 +21,9 @@ const RenderRoute = ({...route}: any) => {
 
 const contentStyle = {
   marginLeft:drawerWidth,
-width: '100%',
-padding:'20px',
-backgroundColor: 'aqua  '
+  width: '100%',
+  padding:'20px',
+  backgroundColor: 'aqua'
 }
 
 
@@ -37,9 +37,8 @@ const Routes = () => {
                 {appRoutes.map(el => {
                   return (
                     el.subLinks  ?
-                    el.subLinks?.map(item => <RenderRoute {...item} key={item.name} />)
-                    
-                    : <RenderRoute {...el} key={el.name} />                        
+                    el.subLinks?.map(item => <RenderRoute {...item} key={item.name} />) 
+                    : <RenderRoute {...el} key={el.name} />   
                     )
                   })}
 

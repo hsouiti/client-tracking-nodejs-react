@@ -1,29 +1,20 @@
 import { createTheme } from "@mui/material/styles";
 import { green, purple } from '@mui/material/colors';
-/*
-declare module '@mui/material/styles' {
-  interface Theme {
-    status: {
-      danger: string;
-    };
-  }
-  // allow configuration using `createTheme`
-  interface ThemeOptions {
-    status?: {
-      danger?: string;
-    };
-  }
-}
+
+
 // https://mui.com/customization/color/#picking-colors
 
-const mainColor = 'red'
+const primaryColor =  'rgba(17,34,56,1)'
+const secondaryColor =  'rgba(255, 145, 0,1)'
 
-const theme = createTheme({
+export const theme = createTheme({
     palette : {
         primary: {
-            main: mainColor,
-        } 
+            main: primaryColor,
+        },
+         secondary:  {
+             main: secondaryColor
+         }
     }
 })
 
-*/

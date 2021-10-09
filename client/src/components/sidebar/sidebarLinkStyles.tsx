@@ -1,10 +1,10 @@
 import { makeStyles } from '@mui/styles'
-
+import { Theme } from '@mui/material'
 /*
 #### reference of overwritting the default styles by & ####
 https://cssinjs.org/jss-plugin-nested?v=v10.8.0
 */
-export default makeStyles(theme => ({
+export default makeStyles((theme: Theme) => ({
     
     root: {
         color: 'white', 
@@ -15,7 +15,7 @@ export default makeStyles(theme => ({
         },
         
         '&:hover, &:hover .MuiTypography-root a, &:hover .MuiSvgIcon-root': {
-          color: 'orange'
+          color:theme.palette.secondary.main 
         }
         
       },
@@ -30,7 +30,7 @@ export default makeStyles(theme => ({
         '& .MuiSvgIcon-root': {
           fontSize: '1.3rem',
         },
-    },
+      },
     navLink: {
       textDecoration: 'none',
       color: 'white',
@@ -41,42 +41,6 @@ export default makeStyles(theme => ({
     },  
     active: {
       textDecoration: 'underline',
-      color:'orange'
+      color:theme.palette.secondary.main 
     } 
 }))
-
-/*
-export const styles = (theme) => ({
-  /* Styles applied to the (normally root) `component` element. May be wrapped by a `container`. */
-  /*root: {
-    '&$focusVisible': {
-      backgroundColor: theme.palette.action.selected,
-    },
-    '&$selected, &$selected:hover': {
-      backgroundColor: theme.palette.action.selected,
-    },
-    '&$disabled': {
-      opacity: 0.5,
-    },
-  },
-  /* Pseudo-class applied to the `component`'s `focusVisibleClassName` prop if `button={true}`. */
-  //focusVisible: {},
-  /* Styles applied to the inner `component` element if `button={true}`. */
-  /*button: {
-    transition: theme.transitions.create('background-color', {
-      duration: theme.transitions.duration.shortest,
-    }),
-    '&:hover': {
-      textDecoration: 'none',
-      backgroundColor: theme.palette.action.hover,
-      // Reset on touch devices, it doesn't add specificity
-      '@media (hover: none)': {
-        backgroundColor: 'transparent',
-      },
-    },
-  },
-  /* Pseudo-class applied to the root element if `selected={true}`. */
- /* selected: {},
-});
-
-*/

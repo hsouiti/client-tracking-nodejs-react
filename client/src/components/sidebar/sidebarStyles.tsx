@@ -1,6 +1,5 @@
 import { makeStyles } from '@mui/styles'
 import {Theme} from '@mui/material'
-
 export const drawerWidth = 320;
 
 export default makeStyles((theme: Theme) =>({
@@ -10,12 +9,11 @@ export default makeStyles((theme: Theme) =>({
         fontWeight: 'bold',
         padding: '20px',
         marginBottom: 30,
-        /* marginBottom:theme.spacing(2) */
     },
     sidebar: {
         width: drawerWidth,
         padding:'0 30px',
-        backgroundColor: 'rgba(17,34,56,1)',
+        backgroundColor: theme.palette.primary.main,
         height: '100vh'
     },
     sideBarElement: {
@@ -44,7 +42,7 @@ export default makeStyles((theme: Theme) =>({
         color: 'white',
         fontWeight: 'normal',
         '&:hover, &:active' :{
-            color: 'orange'
+            color: theme.palette.secondary.main
         }
     },  
     sublinksListItem: {

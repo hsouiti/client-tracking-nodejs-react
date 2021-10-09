@@ -1,7 +1,8 @@
 import React from 'react'
 
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
+import DashboardIcon from '@mui/icons-material/Dashboard';
+import PeopleIcon from '@mui/icons-material/People';
+import InsertDriveFileIcon from '@mui/icons-material/InsertDriveFile';
 
 
 /* To Get the name of each chunk 
@@ -20,27 +21,27 @@ export const appRoutes = [
         name:'Home',
         path: '/',
         exact: true, 
-        icon:  <InboxIcon />,
+        icon:  <DashboardIcon />,
         Component: Home,
     },
     {
         name:'Customers',
         path: '/customers',
         exatct: true,
-        icon:  <MailIcon />,
+        icon:  <PeopleIcon />,
         Component: Customers,
         subLinks: [
             {
                 name: 'List Customers',
                 path:'/customers',
                 exact:true,
-                icon:<MailIcon />,
+                icon:<PeopleIcon />,
                 Component: Customers
             },
             {
                 name: 'New Customer',
                 path:'/customers/new',
-                icon:<MailIcon />,
+                icon:<PeopleIcon />,
                 Component: CustomersAdd
             },
         ]
@@ -48,20 +49,20 @@ export const appRoutes = [
     {
         name:'Invoices',
         path: '/invoices',
-        icon:  <InboxIcon />,
+        icon:  <InsertDriveFileIcon />,
         component: Invoices,
         subLinks: [
             {
                 name: 'List Invoices',
                 path:'/invoices',
                 exact:true,
-                icon:<MailIcon />,
+                icon:<InsertDriveFileIcon />,
                 Component: Invoices
             },
             {
                 name: 'New Invoice',
                 path:'/invoices/new',
-                icon:<MailIcon />,
+                icon:<InsertDriveFileIcon />,
                 Component:InvoiceAdd
             },
         ]
